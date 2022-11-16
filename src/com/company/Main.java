@@ -20,7 +20,7 @@ public class Main {
                 "Петр Лыков", "Павел Чернов", "Петр Чернышов", "Мария Федорова", "Марина Светлова",
                 "Мария Савина", "Мария Рыкова", "Марина Лугова", "Анна Владимирова", "Иван Мечников",
                 "Петр Петин", "Иван Ежов"));
-        logger.info(sortNameDescending(getMapNames(workerList)).keySet().toString());
+        logger.info(sortNameDescending(getMapNames(workerList)));
 
         // Задача 3
         int[] arr = {12, 141, 2522, 535, 657, 234, 1};
@@ -46,17 +46,13 @@ public class Main {
         return countMap;
     }
 
-    public static Map<String, Integer> sortNameDescending(Map<String, Integer> map) {
+    public static String sortNameDescending(Map<String, Integer> map) {
         List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
         Map<String, Integer> result = new LinkedHashMap<>();
         list.sort(Map.Entry.comparingByValue());
         Collections.reverse(list);
+        return  list.toString();
 
-        for (Map.Entry<String, Integer> entry : list) {
-            result.put(entry.getKey(), entry.getValue());
-        }
-
-        return result;
     }
 
     // Задача 3
